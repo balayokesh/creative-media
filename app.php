@@ -56,18 +56,18 @@
 		<main class="d-flex" style="height: 70vh; overflow-y: scroll;">
 			
 			<ul class="nav nav-pills flex-column sticky-top border rounded-right bg-dark py-3" role="tablist">
-				<li class="nav-item">
+				<li class="nav-item" id="ipltolastmsg">
 					<a class="nav-link active text-white" data-toggle="pill" href="#IPL_Fun_Chat">IPL Fun chat</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link text-white" data-toggle="pill" href="#Web_Dev_Chat">Web developers chat</a>
+				<li class="nav-item" id="webtolastmsg">
+					<a class="nav-link text-white " data-toggle="pill" href="#Web_Dev_Chat">Web developers chat</a>
 				</li>
 			</ul>
 
 			<div class="tab-content">
 				<!-- IPL fun chat -->
 				<div id="IPL_Fun_Chat" class="container tab-pane active">
-					<?php 
+					<div id="ipl_receivemsg"><?php 
 						$sql_IPL_Fun_Chat = "SELECT * FROM IPL_Fun_Chat";
 						$result_IPL_Fun_Chat = $db->query($sql_IPL_Fun_Chat);
 						if ($result_IPL_Fun_Chat -> num_rows > 0){
@@ -81,7 +81,7 @@
 						else{
 							echo "<script>alert('No chats yet.. Start your conversation')</script>";
 						}
-					?>
+					?></div>
 					<div class="fixed-bottom w-100">
 						<form action="php-assets/ipl-post-msg.php" method="post"class="float-right w-100 d-flex justify-content-end p-3 mx-3 form-group">
 							<textarea autofocus="on" name="message-IPL" placeholder="Type your message to IPL fans" class="border-primary form-control" style="max-width: 80%; resize: none;"></textarea>
@@ -92,7 +92,7 @@
 				
 				<!-- Web developer chat -->
 				<div id="Web_Dev_Chat" class="container tab-pane">
-					<?php 
+					<div id="web_receivemsg"><?php 
 						$sql_Web_Dev_Chat = "SELECT * FROM Web_Dev_Chat";
 						$result_Web_Dev_Chat = $db->query($sql_Web_Dev_Chat);
 						if ($result_Web_Dev_Chat -> num_rows > 0){
@@ -107,7 +107,7 @@
 							echo "<script>alert('No chats yet.. Start your conversation')</script>";
 						}
 
-					?>
+					?></div>
 					<div class="fixed-bottom w-100">
 						<form action="php-assets/webdev-post-msg.php" method="post"class="float-right w-100 d-flex justify-content-end p-3 mx-3 form-group">
 							<textarea autofocus="on" name="message-webdev" placeholder="Type your message to web developers" class="border-primary form-control" style="max-width: 80%; resize: none;"></textarea>
@@ -122,6 +122,22 @@
 			document.onmousemove = function(){
 				document.querySelector("body").style.backgroundColor = document.querySelector("#color").value;
 			}
+			function tolastmsg(){
+				document.querySelector("main").scrollTo(0, 1000000000);
+			}
+			window.onload = tolastmsg();
+			document.querySelector("#ipltolastmsg").onclick = function(){
+				tolastmsg();
+			}
+			document.querySelector("#webtolastmsg").onclick = function(){
+				tolastmsg();
+			}
+
+			function receivemsg(){
+				$("#ipl_receivemsg").load(location.href + " #ipl_receivemsg");
+				$("#web_receivemsg").load(location.href + " #web_receivemsg");
+			}
+			setInterval(receivemsg, 2000);
 		</script>
 
 	</body>
