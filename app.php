@@ -17,14 +17,16 @@
 		<title>Creative Media</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/
+		bootstrap.min.css">
+		<link rel="icon" type="image/png" href="images/cmlogo.png">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 	</head>
 
-	<body style="background: #516395">
+	<body style="background: #516395; scroll-behavior: smooth;">
 		<header class="navbar bg-dark text-white fixed-top">
 			<h1 class="font-italic text-primary flex-fill" style="font-family: 'Architects Daughter', cursive;">Creative media</h1>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -45,7 +47,7 @@
 			     </li>
 			     <li>
 			   	<label for="color">Choose background color: </label>
-			   	<input type="color" name="color" id="color">
+			   	<input type="color" name="color" id="color" value="#5D73BB">
 			   	</li>
 			   </ul>
 			 </div>  
@@ -111,7 +113,7 @@
 					<div class="fixed-bottom w-100">
 						<form action="php-assets/webdev-post-msg.php" method="post"class="float-right w-100 d-flex justify-content-end p-3 mx-3 form-group">
 							<textarea autofocus="on" name="message-webdev" placeholder="Type your message to web developers" class="border-primary form-control" style="max-width: 80%; resize: none;"></textarea>
-							<input type="submit" value="&#10148;" name="ipl-msg-send" style="width: 60px" class="btn btn-primary">
+							<input type="submit" value="&#10148;" name="ipl-msg-send" style="width: 60px" class="btn btn-dark">
 						</form>
 					</div>
 				</div>
@@ -137,7 +139,7 @@
 				$("#ipl_receivemsg").load(location.href + " #ipl_receivemsg");
 				$("#web_receivemsg").load(location.href + " #web_receivemsg");
 			}
-			setInterval(receivemsg, 2000);
+			setInterval(receivemsg, 3000);
 		</script>
 
 	</body>
