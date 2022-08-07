@@ -7,12 +7,17 @@
 		<link rel="icon" type="image/png" href="assets/images/logo.png">
 		<!-- Import bootstrap Icons -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="assets/style.css" />
 	</head>
 
 	<body>
 		
 		<header>
+			<img src="./assets/images/logo.png" alt="logo" class="logo" />
 			<h1>CREATIVE MEDIA</h1>
+		</header>
+		
+		<div>
 			<p>Media where creative minds meet together</p>
 
 			<?php 
@@ -63,7 +68,7 @@
 				// }
 			?>
 
-		</header>
+		</div>
 
 		<main>
 			<div>
@@ -73,28 +78,16 @@
 			
 			<div>
 				<div>
-					<section>
-						<header>
-							<h3>Have fun time</h3>
-						</header>
-						<p>Are you tired of working for long time.  Let's have a fun group chat.  Select the room that interest you a lot.  Have some fun time during this boredom lockdown.</p>
-					</section>
+					<h3>Have fun time</h3>
+					<p>Are you tired of working for long time.  Let's have a fun group chat.  Select the room that interest you a lot.  Have some fun time during this boredom lockdown.</p>
 				</div>
 				<div>
-					<section>
-						<header>
-							<h3>Social Networking</h3>
-						</header>
-						<p>Find the like minded people who have similar interests of yours.  Join the public room chat, share some knowledge stack, get benefitted.  Let's explore some creativity by knowledge sharing.</p>
-					</section>
+					<h3>Social Networking</h3>
+					<p>Find the like minded people who have similar interests of yours.  Join the public room chat, share some knowledge stack, get benefitted.  Let's explore some creativity by knowledge sharing.</p>
 				</div>
 				<div>
-					<section>
-						<header>
-							<h3>Quick login,100% privacy</h3>
-						</header>
-						<p>No need to remember password and stuff.  Just click on Join creative media button and get logged in with your google account.  It's 100% secured about your user information. </p>
-					</section>
+					<h3>Quick login,100% privacy</h3>
+					<p>No need to remember password and stuff.  Just click on Join creative media button and get logged in with your google account.  It's 100% secured about your user information. </p>
 				</div>
 				<div>
 					<a href="#" class="button">Join creative media</a>
@@ -103,30 +96,22 @@
 		</main>
 
 		<footer>
-			<ul>
-				<li>
-					<a href="https://twitter.com/balayokeshmani" target="_blank">
-						<i class="bi bi-twitter"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.facebook.com/profile.php?id=100081029223342" target="_blank">
-						<i class="bi bi-facebook"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://instagram.com/yokesh_004" target="_blank">
-						<i class="bi bi-instagram"></i>
-					</a>
-				</li>
-				<li>
-					<a href="https://github.com/balayokesh" target="_blank">
-						<i class="bi bi-github"></i>
-					</a>
-				</li>
-			</ul>
-			
-			<div>
+			<a href="https://twitter.com/balayokeshmani" target="_blank" class="icon">
+				<i class="bi bi-twitter"></i>
+			</a>
+			<a href="https://www.facebook.com/profile.php?id=100081029223342" target="_blank" class="icon">
+				<i class="bi bi-facebook"></i>
+			</a>
+			<a href="https://instagram.com/yokesh_004" target="_blank" class="icon">
+				<i class="bi bi-instagram"></i>
+			</a>
+			<a href="https://github.com/balayokesh" target="_blank" class="icon">
+				<i class="bi bi-github"></i>
+			</a>
+				
+			<br />
+
+			<div class="section">
 				Thanks for visiting this page |
 				Design by <a href="https://balayokesh.github.io" target="_blank">Bala Yokesh Mani A</a>
 			</div>
