@@ -7,11 +7,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" type="image/png" href="images/cmlogo.png">
 		
-		<!-- Import bootstrap -->
-		<!-- CSS only -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-		<!-- JavaScript Bundle with Popper -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+		<!-- Import bootstrap Icons -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 		<style type="text/css">
@@ -23,73 +19,68 @@
 	<body class="is-preload">
 
 		<!-- Header -->
-			<section id="header" class="dark">
-				<header>
-					<h1>CREATIVE MEDIA</h1>
-					<p>Media where creative minds meet together</p>
-				</header>
-				<footer>
+			<header>
+				
+				<h1>CREATIVE MEDIA</h1>
+				<p>Media where creative minds meet together</p>
 
-					<?php 
-						session_start();
+				<?php 
+					session_start();
 
-						//If already signed in then redirect to app.php
+					//If already signed in then redirect to app.php
 
-						if(isset($_SESSION['user_mailid'])){
-							header("location: app.php");
-						}  
+					if(isset($_SESSION['user_mailid'])){
+						header("location: app.php");
+					}  
 
-						require_once 'client/vendor/autoload.php';
+					require_once 'client/vendor/autoload.php';
 
-						// init configurations
-						$clientId = "732279262537-gnfe3jf4ba77unsbpupsp893v425m2rk.apps.googleusercontent.com";
-						$clientSecret = "bfqHUV0Y1jlrB8kpyUHVpFqF";
-						$redirectUri = "http://localhost/creative-media/index.php";
+					// init configurations
+					$clientId = "732279262537-gnfe3jf4ba77unsbpupsp893v425m2rk.apps.googleusercontent.com";
+					$clientSecret = "bfqHUV0Y1jlrB8kpyUHVpFqF";
+					$redirectUri = "http://localhost/creative-media/index.php";
 
-						// Creating client request
-						$client = new Google_Client();
-						$client->setClientId($clientId);
-						$client->setClientSecret($clientSecret);
-						$client->setRedirectUri($redirectUri);
+					// Creating client request
+					$client = new Google_Client();
+					$client->setClientId($clientId);
+					$client->setClientSecret($clientSecret);
+					$client->setRedirectUri($redirectUri);
 
-						$client->addScope('email');
-						$client->addScope('profile');
+					$client->addScope('email');
+					$client->addScope('profile');
 
-						if(isset($_GET['code'])){
-							$token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-							$client->setAccessToken($token['access_token']);
+					if(isset($_GET['code'])){
+						$token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+						$client->setAccessToken($token['access_token']);
 
-							// Getting profile info
-							$google_oauth = new Google_Service_Oauth2($client);
-							$google_account_info = $google_oauth->userinfo->get();
+						// Getting profile info
+						$google_oauth = new Google_Service_Oauth2($client);
+						$google_account_info = $google_oauth->userinfo->get();
 
-							$email = $google_account_info->email;
-							$name = $google_account_info->name;
-							$picture = $google_account_info->picture;
+						$email = $google_account_info->email;
+						$name = $google_account_info->name;
+						$picture = $google_account_info->picture;
 
-							$_SESSION['user_mailid'] = $email;
-							$_SESSION['user_name'] = $name;
-							$_SESSION['profile_picture'] = $picture;
-							header("location: app.php");
-						}
-						else{
-							echo "<a class='button' id='google-login' href=". $client->createAuthUrl().">Log in with Google</a>";
-							echo "<a href='app.php'></a>";
-						}
-					?>
+						$_SESSION['user_mailid'] = $email;
+						$_SESSION['user_name'] = $name;
+						$_SESSION['profile_picture'] = $picture;
+						header("location: app.php");
+					}
+					else{
+						echo "<a class='button' id='google-login' href=". $client->createAuthUrl().">Log in with Google</a>";
+						echo "<a href='app.php'></a>";
+					}
+				?>
+			</header>
 
-					<!-- <a href="app.php" class="button scrolly">Join Creative media</a> -->
-				</footer>
-			</section>
-
-		<!-- First -->
-			<section id="first" class="main">
-				<header>
-					<div class="container">
-						<h2>Creative Media - Where creative minds meet together</h2>
-						<p>Creative media is a social media where you can join room chats.  Chat with similar minded persons.  Change your interest into creativity.  Have fun by being involved in your interested rooms chats.</p>
-					</div>
-				</header>
+			<!-- First -->
+			<main id="first" class="main">
+				
+				<div>
+					<h2>Creative Media - Where creative minds meet together</h2>
+					<p>Creative media is a social media where you can join room chats.  Chat with similar minded persons.  Change your interest into creativity.  Have fun by being involved in your interested rooms chats.</p>
+				</div>
+				
 				<div class="content dark style1 featured">
 					<div class="container">
 						<div class="row">
@@ -128,21 +119,36 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</main>
 
-		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="https://twitter.com/yokesh_mani" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://facebook.com/balayokesh.395" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="https://instagram.com/yokesh_004" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/yokesh004" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			<!-- Footer -->
+			<footer>
+				<ul>
+					<li>
+						<a href="https://twitter.com/balayokeshmani" target="_blank">
+							<i class="bi bi-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/profile.php?id=100081029223342" target="_blank">
+							<i class="bi bi-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://instagram.com/yokesh_004" target="_blank">
+							<i class="bi bi-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/balayokesh" target="_blank">
+							<i class="bi bi-github"></i>
+						</a>
+					</li>
 				</ul>
-				<div class="copyright">
-					<ul class="menu">
-						<li>Thanks for visiting this page.</li><li>Design: <a href="http://balayokesh.xyz">Bala Yokesh Mani</a></li>
-					</ul>
+				<div>
+					Thanks for visiting this page |
+					Design by <a href="https://balayokesh.github.io" target="_blank">Bala Yokesh Mani A</a>
 				</div>
-			</section>
+			</footer>
 	</body>
 </html>
