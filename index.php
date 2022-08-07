@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/png" href="assets/images/logo.png">
 		<!-- Import bootstrap Icons -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="assets/style.css" />
 	</head>
 
 	<body>
